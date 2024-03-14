@@ -1,0 +1,17 @@
+.profile__logo {
+    font-family: "Familjen Grotesk", sans-serif;
+    display: flex;
+    margin: 0 0 0px 40px;
+    font-size: 20px;
+    font-weight: 700;
+    height: 40px;
+    gap: 16px;
+  }
+  
+  .profile__avatar-image {
+    border-radius: 50%;
+    background-color: black;
+  }
+  .profile__avatar-name {
+    align-self: center;
+  }

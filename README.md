@@ -2,6 +2,55 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# General Information
+
+This app allows you to see what clothes garments you should wear for the current weather setting you are located in. You can add garments to the page so when the API determines the weather it will auto select which clothes 
+garments are best suited for the current weather.
+
+## Components
+
+This section holds all components of the project categorized by sections on the page
+
+### App
+
+This component is the main component that holds the HTML and css of the page. It imports all other components.
+
+### Footer
+
+This component states the developer of the app and the year
+
+### Header
+
+This component shows the logo, weather API call, location, and the add garment button and form
+
+### ItemCard
+
+This component shows the garment item that the user should wear depending on the current weather. You can add item cards with the +Add Garment button function.
+
+### ItemModal
+
+This component opens when an item card is clicked on. It previews an image of the garment selected, shows the name of the garment, and what type of weather it is used for.
+
+### Main
+
+This component contains all the main items of the page. From the item cards to the weather card and the information contained within.
+
+### ModalWithForm
+
+This component handles the form when adding a new garment to the page.
+
+### WeatherCard
+
+This component handles the type of weather for the current location. It will display a different weather type depending on the user's location.
+
+### Images
+
+Contains all the images needed for the page.
+
+### Utils
+
+This contains the weather api for the weather card and the constants for all the images used that are exported to other components.
+
 ## Available Scripts
 
 In the project directory, you can run:
