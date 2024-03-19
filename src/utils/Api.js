@@ -16,47 +16,51 @@ export function getItems() {
   }).then(processServerResponse);
 }
 
-export function postItems(item) {
+export function postItems({ name, link, weather, token, owner }) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(item),
+    body: JSON.stringify({ name, weather, imageUrl: link, owner }),
   }).then(processServerResponse);
 }
 
-export function deleteItems(id) {
+export function deleteItems(id, token) {
   return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
   }).then(processServerResponse);
 }
 
-export const addCardLike = (_id) => {
-  const jwt = localStorage.getItem("jwt");
+export const addCardLike = (_id, token) => {
+  //const token = localStorage.getItem("jwt");
 
   return fetch(`${baseUrl}/items/${_id}/likes`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
       "Content-type": "application/json",
-      authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${token}`,
     },
   }).then(processServerResponse);
 };
 
-export const removeCardLike = (_id) => {
-  const jwt = localStorage.getItem("jwt");
+export const removeCardLike = (_id, token) => {
+  //const jwt = localStorage.getItem("jwt");
 
   return fetch(`${baseUrl}/items/${_id}/likes`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
       "Content-type": "application/json",
-      authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${token}`,
     },
   }).then(processServerResponse);
 };

@@ -1,7 +1,12 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 
-const RegisterModal = ({ onClose, registerUser, openLoginModal }) => {
+const RegisterModal = ({
+  onClose,
+  registerUser,
+  openLoginModal,
+  isLoading,
+}) => {
   const [email, setEmail] = useState("");
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -102,10 +107,14 @@ const RegisterModal = ({ onClose, registerUser, openLoginModal }) => {
           onChange={handleAvatarChange}
         ></input>
       </div>
-
-      <button className="modal__login" type="button" onClick={openLoginModal}>
-        Or Log In
-      </button>
+      <div className="modal-form-buttons">
+        <button className="modal-form-submit" type="submit">
+          {isLoading ? "Submitting..." : "Sign Up"}
+        </button>
+        <button className="modal__login" type="button" onClick={openLoginModal}>
+          Or Log In
+        </button>
+      </div>
     </ModalWithForm>
   );
 };

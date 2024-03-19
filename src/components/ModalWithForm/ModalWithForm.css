@@ -117,9 +117,27 @@
   background-color: #000;
 }
 
+.modal-form-buttons {
+  display: flex;
+}
+
+.modal__login {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  border: 0;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
 .modal-form-submit:hover {
-  color: rgba(255,255,255, 1);
-  background-color: rgba(0,0,0,0.6);
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 0.6);
   cursor: pointer;
 }
 

@@ -136,11 +136,14 @@ function App() {
     setIsLoading(true);
     return login(user)
       .then((res) => {
+        //const token = res.data;
+        setToken(res.token);
+        localStorage.setItem("jwt", res.token);
+        setLoggedIn(true);
+        setCurrentUser(res);
         handleCloseModal();
-        const token = res.data;
-        setToken(token);
-        localStorage.setItem("jwt", token);
-        return checkLoggedIn(token);
+        history.push("/profile");
+        //return checkLoggedIn(token);
       })
       .catch((err) => {
         console.error(err);
@@ -221,6 +224,7 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
+    console.log(jwt);
     if (jwt) {
       checkLoggedIn(jwt)
         .then(() => {
