@@ -28,8 +28,8 @@ export function postItems(item, token) {
   }).then(processServerResponse);
 }
 
-export function deleteItems(id, token) {
-  return fetch(`${baseUrl}/items/${id}`, {
+export function deleteItems(_id, token) {
+  return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
