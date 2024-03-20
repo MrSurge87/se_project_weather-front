@@ -201,9 +201,9 @@ function App() {
   };
 
   const onAddItem = (values) => {
-    const res = postItems(values)
+    const res = postItems(values, token)
       .then((res) => {
-        setClothingItems((items) => [res, ...items]);
+        setClothingItems((items) => [res.data, ...items]);
         handleCloseModal();
       })
       .catch(console.error);
@@ -224,7 +224,6 @@ function App() {
 
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
-    console.log(jwt);
     if (jwt) {
       checkLoggedIn(jwt)
         .then(() => {
@@ -316,8 +315,9 @@ function App() {
         {activeModal === "preview" && (
           <ItemModal
             selectedCard={selectedCard}
+            onDeleteClick={handleDeleteModal}
             onClose={handleCloseModal}
-            handleDeleteCard={handleDeleteModal}
+           
           />
         )}
         {activeModal === "edit" && (
@@ -330,7 +330,7 @@ function App() {
         {activeModal === "delete" && (
           <DeleteItem
             onClose={handleCloseModal}
-            handleDeleteCard={handleDeleteCard}
+            onDeleteClick={handleDeleteCard}
             selectedCard={selectedCard}
             isLoading={isLoading}
           />

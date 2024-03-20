@@ -3,11 +3,11 @@ import React from "react";
 import close from "../../images/close.svg";
 import "./DeleteItem.css";
 
-const DeleteItemModal = ({onClose, deleteCard}) => {
+const DeleteItemModal = ({onClose, onDeleteClick}) => {
     return (
         <div className={"modal delete"}>
             <div className="delete__modal-container">
-                {/* <div className="delete__modal"> */}
+                <div className="delete__modal">
                         <button className="delete__modal-close"> 
                             <img className="delete-button" src={close} onClick={onClose} alt="Close Button" />
                         </button>
@@ -19,9 +19,9 @@ const DeleteItemModal = ({onClose, deleteCard}) => {
                         </p>
                         
                     </div>
-                {/* </div> */}
+                </div>
                 <div className="delete__modal-button">
-                    <button className="delete__button-confirm" onClick={deleteCard}>
+                    <button className="delete__button-confirm" onClick={onDeleteClick}>
                         Yes, delete item
                     </button>
                 </div>

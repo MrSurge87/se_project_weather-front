@@ -16,7 +16,7 @@ export function getItems() {
   }).then(processServerResponse);
 }
 
-export function postItems({ name, link, weather, token, owner }) {
+export function postItems(item, token) {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
@@ -24,7 +24,7 @@ export function postItems({ name, link, weather, token, owner }) {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, weather, imageUrl: link, owner }),
+    body: JSON.stringify(item),
   }).then(processServerResponse);
 }
 

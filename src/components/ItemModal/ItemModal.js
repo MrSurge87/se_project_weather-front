@@ -1,7 +1,7 @@
 import "./ItemModal.css";
 import React from "react";
 
-const ItemModal = ({ selectedCard, onClose, onClick }) => {
+const ItemModal = ({ selectedCard, onClose, onDeleteClick }) => {
   return (
     <div className={"modal"}>
       <div className="preview-image-content">
@@ -9,7 +9,7 @@ const ItemModal = ({ selectedCard, onClose, onClick }) => {
         <img className="image-preview" src={selectedCard.imageUrl} alt="image-preview"></img>
         
         <div className="preview-image-name"> {selectedCard.name} 
-          <button className="delete-button" onClick={onClick}>
+          <button className="delete-button" onClick={onDeleteClick}>
             Delete Item
           </button></div>
         <div className="preview-image-weather-type"> Weather Type: {selectedCard.weather} </div>

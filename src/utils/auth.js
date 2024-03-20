@@ -1,23 +1,24 @@
 import { processServerResponse } from "./Api";
 
 const baseUrl = "http://localhost:3001";
-const baseHeaders = { "Content-Type": "application/json" };
 
 export const register = ({ name, avatar, email, password }) => {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
-    headers: baseHeaders,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ name, avatar, email, password }),
   }).then(processServerResponse);
 };
 
-export const login = ({ email, password, token }) => {
+export const login = ({ email, password }) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
     headers: {
       Accept: "application/json",
-      baseHeaders,
-      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
   }).then(processServerResponse);
@@ -28,7 +29,7 @@ export const update = ({ name, avatar }, token) => {
     method: "PATCH",
     headers: {
       Accept: "application/json",
-      baseHeaders,
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, avatar }),
@@ -40,18 +41,18 @@ export const checkToken = (token) => {
     method: "GET",
     headers: {
       Accept: "application/json",
-      baseHeaders,
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   }).then(processServerResponse);
 };
 
 export const getUserData = (token) => {
-  console.log(token);
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
-      baseHeaders,
+      Accept: "application/json",
+      "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
   }).then(processServerResponse);
