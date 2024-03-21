@@ -3,7 +3,7 @@ import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import "./ClothesSection.css";
 
-const ClothesSection = ({onSelectCard, onCreate, clothingItems, onAddItem}) => {
+const ClothesSection = ({onSelectCard, onCreate, clothingItems, onAddItem, onCardLike, isLoggedIn}) => {
 
     return (
         <div className="profile__card-items">
@@ -15,6 +15,8 @@ const ClothesSection = ({onSelectCard, onCreate, clothingItems, onAddItem}) => {
                 onSelectCard={onSelectCard} 
                 onCreate={onCreate}
                 onAddItem={onAddItem}
+                onCardLike={onCardLike}
+                isLoggedIn={isLoggedIn}
                  />
                 );
             })}

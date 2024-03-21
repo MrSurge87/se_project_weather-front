@@ -65,7 +65,7 @@ function App() {
 
   const handleDeleteCard = () => {
     const id = selectedCard._id;
-    deleteItems(id)
+    deleteItems(id, token)
       .then(() => {
         setClothingItems(clothingItems.filter((item) => item._id !== id));
         handleCloseModal();
@@ -170,24 +170,28 @@ function App() {
   const handleCardLike = (id, isLiked) => {
     if (isLiked) {
       removeCardLike(id, token)
-        .then((updatedCard) => {
+        .then((data) => {
           setClothingItems((cards) =>
-            cards.map((c) => (c._id === id ? updatedCard : c))
+            cards.map((c) => (c._id === id ? data.data : c))
           );
           setIsLiked(false);
         })
         .catch((err) => console.log(err));
     } else {
       addCardLike(id, token)
-        .then((updatedCard) => {
+        .then((data) => {
           setClothingItems((cards) =>
-            cards.map((c) => (c._id === id ? updatedCard : c))
+            cards.map((c) => (c._id === id ? data.data : c))
           );
           setIsLiked(true);
         })
         .catch((err) => console.log(err));
     }
   };
+
+  const onCardLike = (_id, isLiked) => {
+    handleCardLike(_id, isLiked);
+  }
 
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
@@ -270,6 +274,7 @@ function App() {
               clothingItems={clothingItems}
               handleCardLike={handleCardLike}
               handleOpenItemModal={handleOpenItemModal}
+              onCardLike={handleCardLike}
             />
           </Route>
           <ProtectedRoute path="/profile" loggedIn={loggedIn}>
@@ -282,6 +287,7 @@ function App() {
               loggedIn={loggedIn}
               editProfile={handleOpenEditProfileModal}
               logout={logoutUser}
+              onCardLike={handleCardLike}
             />
           </ProtectedRoute>
         </Switch>

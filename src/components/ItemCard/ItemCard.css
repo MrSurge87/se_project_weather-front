@@ -42,3 +42,10 @@
   justify-content: center;
   margin-top: 34px;
 }
+
+.card__like {
+  width: 18px;
+  height: 15px;
+  border: none;
+  background-color: #fff;
+}

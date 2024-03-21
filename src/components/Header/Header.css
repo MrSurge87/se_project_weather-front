@@ -51,6 +51,15 @@
 }
 
 .header__date {
-  display:flex;
+  display: flex;
   justify-content: baseline;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.header-avatar-logo {
+  padding-left: 12px;
 }

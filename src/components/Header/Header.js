@@ -29,7 +29,7 @@ const Header = ({ onCreateModal, city, loggedIn, onRegister, onLogin }) => {
       <div className="header__avatar-logo">
         <ToggleSwitch />
         {loggedIn ? (
-          <div>
+          <div className="header-buttons">
             <button
               className="header__button"
               type="button"
@@ -40,9 +40,8 @@ const Header = ({ onCreateModal, city, loggedIn, onRegister, onLogin }) => {
             <Link to="/profile" className="header__name">
               MrSurge
             </Link>
-            <div>
-              <img src={avatarImage} alt="avartar" />
-            </div>
+              <img className="header-avatar-logo" src={avatarImage} alt="avartar" />
+            
           </div>
         ) : (
           <div>
