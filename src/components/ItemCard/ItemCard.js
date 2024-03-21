@@ -11,7 +11,6 @@ const ItemCard = ({ item, onSelectCard, isLoggedIn, onCardLike }) => {
 
 
   const handleLike = () => {
-    debugger;
     onCardLike(id, isLiked, setIsLiked);
   };
 

@@ -168,6 +168,7 @@ function App() {
   };
 
   const handleCardLike = (id, isLiked) => {
+    //debugger;
     if (isLiked) {
       removeCardLike(id, token)
         .then((data) => {
@@ -189,9 +190,6 @@ function App() {
     }
   };
 
-  const onCardLike = (_id, isLiked) => {
-    handleCardLike(_id, isLiked);
-  }
 
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
