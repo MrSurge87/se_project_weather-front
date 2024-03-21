@@ -2,8 +2,8 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./ItemModal.css";
 import React, { useContext } from "react";
 
-const ItemModal = ({ selectedCard, onClose, onDeleteClick }) => {
-  const loggedIn = useContext(CurrentUserContext);
+const ItemModal = ({ selectedCard, onClose, onDeleteClick, loggedIn }) => {
+
 
   return (
     <div className={"modal"}>

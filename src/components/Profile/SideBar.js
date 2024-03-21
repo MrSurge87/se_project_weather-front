@@ -4,8 +4,7 @@ import "./SideBar.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const SideBar = ({ onSignOut, onEditProfile }) => {
-  const {  currentUser } = useContext(CurrentUserContext);
-  console.log(currentUser);
+  const  currentUser  = useContext(CurrentUserContext);
 
   const userName = currentUser ? currentUser?.name : "No User";
 

@@ -24,6 +24,10 @@
   padding: 0;
 }
 
+.sidebar__logout-button:hover {
+  cursor: pointer;
+}
+
 .sidebar__change_profile_data-button {
   background-color: transparent;
   border: none;
@@ -36,6 +40,10 @@
   font-weight: 700;
   line-height: normal;
   padding:0;
+}
+
+.sidebar__change_profile_data-button:hover {
+  cursor: pointer;
 }
 
 .profile__logo {

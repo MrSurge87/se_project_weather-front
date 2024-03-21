@@ -276,6 +276,7 @@ function App() {
               handleCardLike={handleCardLike}
               handleOpenItemModal={handleOpenItemModal}
               onCardLike={handleCardLike}
+              isLiked={isLiked}
             />
           </Route>
           <ProtectedRoute path="/profile" loggedIn={loggedIn}>
@@ -286,7 +287,7 @@ function App() {
               handleOpenItemModal={handleOpenItemModal}
               handleCardLike={handleCardLike}
               loggedIn={loggedIn}
-              editProfile={handleOpenEditProfileModal}
+              updateUser={handleOpenEditProfileModal}
               onSignOut={onSignOut}
               onCardLike={handleCardLike}
               isLiked={handleCardLike}
@@ -326,7 +327,7 @@ function App() {
             selectedCard={selectedCard}
             onDeleteClick={handleDeleteModal}
             onClose={handleCloseModal}
-            loggedIn={checkLoggedIn}
+            loggedIn={loggedIn}
           />
         )}
         {activeModal === "edit" && (
@@ -337,6 +338,7 @@ function App() {
               setCurrentUser(updateUser);
               handleCloseModal();
             }}
+            
           />
         )}
 
