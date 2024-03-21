@@ -40,6 +40,8 @@ import RegisterModal from "../RegisterModal/RegisterModal.js";
 import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
+import * as api from "../../utils/Api";
+
 
 function App() {
   const [activeModal, setActiveModal] = useState("");
@@ -167,8 +169,7 @@ function App() {
     history.push("/");
   };
 
-  const handleCardLike = (id, isLiked) => {
-    //debugger;
+  const handleCardLike = (id, isLiked, setIsLiked) => {
     if (isLiked) {
       removeCardLike(id, token)
         .then((data) => {
@@ -189,7 +190,7 @@ function App() {
         .catch((err) => console.log(err));
     }
   };
-
+ 
 
   const handleSelectedCard = (card) => {
     setActiveModal("preview");

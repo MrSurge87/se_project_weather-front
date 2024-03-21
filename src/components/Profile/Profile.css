@@ -52,6 +52,7 @@
     background: none;
     border: none;
     margin-left: 20px;
+    color: rgba(0,0,0,0.6);
   }
 
   .profile__add-button:hover {
