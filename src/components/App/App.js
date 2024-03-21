@@ -286,6 +286,7 @@ function App() {
               editProfile={handleOpenEditProfileModal}
               logout={logoutUser}
               onCardLike={handleCardLike}
+              isLiked={handleCardLike}
             />
           </ProtectedRoute>
         </Switch>
