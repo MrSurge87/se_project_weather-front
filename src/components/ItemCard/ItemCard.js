@@ -9,11 +9,9 @@ const ItemCard = ({ item, onSelectCard, isLoggedIn, onCardLike }) => {
   const { isLiked, setIsLiked } = useState(item.likes.some((user) => user === currentUser?._id));
   const id = item._id;
 
-  const itemLikeButtonClassName = isLoggedIn
-    ? `${isLiked ? "card__like-btn_liked" : "card__like-btn"}`
-    : "card__like-btn_hidden";
 
   const handleLike = () => {
+    debugger;
     onCardLike(id, isLiked, setIsLiked);
   };
 
