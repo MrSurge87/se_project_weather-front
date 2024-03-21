@@ -3,11 +3,14 @@ import SideBar from "./SideBar";
 import ClothesSection from "./ClothesSection";
 import "./Profile.css";
 
-const Profile = ({onCreate, clothingItems, onSelectCard, onAddItem, onCardLike}) => {
+const Profile = ({onCreate, clothingItems, onSelectCard, onAddItem, onCardLike, onEditProfile, onSignOut, onDeleteClick}) => {
 
     return (
+         
         <div className="profile">
-            <SideBar />
+    
+            
+            <SideBar onSignOut={onSignOut} onEditProfile={onEditProfile}/> 
             <div className="profile__items-container">
                 <div className="profile__items-text">
                     Your clothing items
@@ -23,6 +26,7 @@ const Profile = ({onCreate, clothingItems, onSelectCard, onAddItem, onCardLike})
                 onCreate={onCreate} 
                 onAddItem={onAddItem}
                 onCardLike={onCardLike}
+                onDeleteClick={onDeleteClick}
                 />
                 
             </div>

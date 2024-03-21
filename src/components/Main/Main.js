@@ -4,7 +4,7 @@ import { useMemo, useContext } from "react";
 import "./Main.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
+function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike, onDeleteClick }) {
   const {currentTemperatureUnit} = useContext(CurrentTemperatureUnitContext);
     const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999
     const tempInF = currentTemperatureUnit === 'F' ? temp : temp * 1.8 + 32
@@ -41,6 +41,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
               name={item.name}
               weather={item.weather}
               onCardLike={onCardLike}
+              onDeleteClick={onDeleteClick}
 
             /> );
 })}

@@ -42,7 +42,6 @@ import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 import AddItemModal from "../AddItemModal/AddItemModal.js";
 import * as api from "../../utils/Api";
 
-
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -162,10 +161,11 @@ function App() {
     );
   };
 
-  const logoutUser = () => {
+  const onSignOut = () => {
     localStorage.removeItem("jwt");
     setCurrentUser({});
     setLoggedIn(false);
+    setCurrentUser(null);
     history.push("/");
   };
 
@@ -190,7 +190,6 @@ function App() {
         .catch((err) => console.log(err));
     }
   };
- 
 
   const handleSelectedCard = (card) => {
     setActiveModal("preview");
@@ -238,7 +237,7 @@ function App() {
             .catch((err) => {
               if (err.response && err.resonse.status === 401) {
                 console.error("Token invlaide or expired. Logging you out...");
-                logoutUser();
+                onSignOut();
               } else {
                 console.error("Error fetching user data:", err);
               }
@@ -285,9 +284,10 @@ function App() {
               handleCardLike={handleCardLike}
               loggedIn={loggedIn}
               editProfile={handleOpenEditProfileModal}
-              logout={logoutUser}
+              onSignOut={onSignOut}
               onCardLike={handleCardLike}
               isLiked={handleCardLike}
+              onDeleteClick={handleDeleteCard}
             />
           </ProtectedRoute>
         </Switch>
@@ -323,13 +323,16 @@ function App() {
             selectedCard={selectedCard}
             onDeleteClick={handleDeleteModal}
             onClose={handleCloseModal}
-           
           />
         )}
         {activeModal === "edit" && (
           <EditProfileModal
+            isOpen={activeModal === "edit"}
             onClose={handleCloseModal}
-            updateUser={updateUser}
+            updateUser={(updateUser) => {
+              setCurrentUser(updateUser);
+              handleCloseModal();
+            }}
           />
         )}
 

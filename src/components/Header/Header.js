@@ -38,7 +38,7 @@ const Header = ({ onCreateModal, city, loggedIn, onRegister, onLogin }) => {
               + Add Clothes
             </button>
             <Link to="/profile" className="header__name">
-              MrSurge
+              {currentUser?.name || "Your Name" }
             </Link>
               <img className="header-avatar-logo" src={avatarImage} alt="avartar" />
             
