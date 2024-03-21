@@ -5,7 +5,7 @@ import likeButton from "../../images/State=Default.svg";
 import likeButtonActive from "../../images/State=Liked.svg";
 
 const ItemCard = ({ item, onSelectCard, isLoggedIn, onCardLike }) => {
-  const { currentUser } = useContext(CurrentUserContext);
+  const  currentUser  = useContext(CurrentUserContext);
   const { isLiked, setIsLiked } = useState(item.likes.some((user) => user === currentUser?._id));
   const id = item._id;
 

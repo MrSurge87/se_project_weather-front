@@ -66,6 +66,7 @@ function App() {
 
   const handleDeleteCard = () => {
     const id = selectedCard._id;
+    console.log(token);
     deleteItems(id, token)
       .then(() => {
         setClothingItems(clothingItems.filter((item) => item._id !== id));
@@ -135,13 +136,15 @@ function App() {
 
   const loginUser = (user) => {
     setIsLoading(true);
+    
     return login(user)
       .then((res) => {
         //const token = res.data;
+        checkLoggedIn(token);
         setToken(res.token);
         localStorage.setItem("jwt", res.token);
         setLoggedIn(true);
-        setCurrentUser(res);
+        setCurrentUser(res.user);
         handleCloseModal();
         history.push("/profile");
         //return checkLoggedIn(token);
@@ -323,6 +326,7 @@ function App() {
             selectedCard={selectedCard}
             onDeleteClick={handleDeleteModal}
             onClose={handleCloseModal}
+            loggedIn={checkLoggedIn}
           />
         )}
         {activeModal === "edit" && (

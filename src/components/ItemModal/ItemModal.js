@@ -1,7 +1,10 @@
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./ItemModal.css";
-import React from "react";
+import React, { useContext } from "react";
 
 const ItemModal = ({ selectedCard, onClose, onDeleteClick }) => {
+  const loggedIn = useContext(CurrentUserContext);
+
   return (
     <div className={"modal"}>
       <div className="preview-image-content">
@@ -9,9 +12,12 @@ const ItemModal = ({ selectedCard, onClose, onDeleteClick }) => {
         <img className="image-preview" src={selectedCard.imageUrl} alt="image-preview"></img>
         
         <div className="preview-image-name"> {selectedCard.name} 
+        {loggedIn && (
           <button className="delete-button" onClick={onDeleteClick}>
-            Delete Item
-          </button></div>
+          Delete Item
+        </button>
+        )}
+          </div>
         <div className="preview-image-weather-type"> Weather Type: {selectedCard.weather} </div>
       </div>
     </div>

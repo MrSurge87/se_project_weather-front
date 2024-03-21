@@ -8,8 +8,6 @@ const Profile = ({onCreate, clothingItems, onSelectCard, onAddItem, onCardLike, 
     return (
          
         <div className="profile">
-    
-            
             <SideBar onSignOut={onSignOut} onEditProfile={onEditProfile}/> 
             <div className="profile__items-container">
                 <div className="profile__items-text">

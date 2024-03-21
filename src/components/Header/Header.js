@@ -12,6 +12,7 @@ const currentDate = new Date().toLocaleString("default", {
 });
 
 const Header = ({ onCreateModal, city, loggedIn, onRegister, onLogin }) => {
+  
   const currentUser = useContext(CurrentUserContext);
 
   return (
