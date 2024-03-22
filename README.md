@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Backend Link To Mongo DB
+
+This link is used to access the backend: https://github.com/MrSurge87/se_project_express
+
 # General Information
 
 This app allows you to see what clothes garments you should wear for the current weather setting you are located in. You can add garments to the page so when the API determines the weather it will auto select which clothes 
