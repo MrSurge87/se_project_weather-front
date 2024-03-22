@@ -4,6 +4,7 @@ import ClothesSection from "./ClothesSection";
 import "./Profile.css";
 
 const Profile = ({onCreate, clothingItems, onSelectCard, onAddItem, onCardLike, onEditProfile, onSignOut, onDeleteClick}) => {
+   
 
     return (
          

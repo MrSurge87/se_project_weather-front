@@ -51,7 +51,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
-  const [isLiked, setIsLiked] = useState(false);
+  //const [isLiked, setIsLiked] = useState(false);
   const history = useHistory("");
   const [token, setToken] = useState(localStorage.getItem("jwt") || "");
   const [isLoading, setIsLoading] = useState(false);
@@ -172,14 +172,16 @@ function App() {
     history.push("/");
   };
 
-  const handleCardLike = (id, isLiked, setIsLiked) => {
+  const handleCardLike = (id, isLiked) => {
+    //debugger;
+
+    const token = localStorage.getItem("jwt");
     if (isLiked) {
       removeCardLike(id, token)
         .then((data) => {
           setClothingItems((cards) =>
             cards.map((c) => (c._id === id ? data.data : c))
           );
-          setIsLiked(false);
         })
         .catch((err) => console.log(err));
     } else {
@@ -188,7 +190,6 @@ function App() {
           setClothingItems((cards) =>
             cards.map((c) => (c._id === id ? data.data : c))
           );
-          setIsLiked(true);
         })
         .catch((err) => console.log(err));
     }
@@ -276,7 +277,6 @@ function App() {
               handleCardLike={handleCardLike}
               handleOpenItemModal={handleOpenItemModal}
               onCardLike={handleCardLike}
-              isLiked={isLiked}
             />
           </Route>
           <ProtectedRoute path="/profile" loggedIn={loggedIn}>
@@ -285,13 +285,11 @@ function App() {
               onCreate={handleCreateModal}
               clothingItems={clothingItems}
               handleOpenItemModal={handleOpenItemModal}
-              handleCardLike={handleCardLike}
               loggedIn={loggedIn}
-              updateUser={handleOpenEditProfileModal}
+              onEditProfile={handleOpenEditProfileModal}
               onSignOut={onSignOut}
-              onCardLike={handleCardLike}
-              isLiked={handleCardLike}
               onDeleteClick={handleDeleteCard}
+              onCardLike={handleCardLike}
             />
           </ProtectedRoute>
         </Switch>

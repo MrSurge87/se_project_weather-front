@@ -33,10 +33,11 @@ const EditProfileModal = ({ onClose, updateUser }) => {
       buttonText="Save Changes"
       onSubmit={onSubmit}
     >
-      <div>
+      <ul className="edit-modal__input-container">
         <label className="modal__input-title" htmlFor="name-input">
-          Name
+          Name *
         </label>
+        <li className="modal__inputs">
         <input
           id="name"
           className="modal__input"
@@ -49,24 +50,30 @@ const EditProfileModal = ({ onClose, updateUser }) => {
           value={name}
           onChange={handleNameChange}
         ></input>
-      </div>
+        </li>
 
+          <label className="modal__input-title" htmlFor="avatar-input">
+            Avatar *
+          </label>
+          <li className="modal__inputs">
+          <input
+            id="avatar"
+            className="modal__input"
+            type="url"
+            name="url"
+            placeholder={currentUser.avatar}
+            minLength="1"
+            maxLength="400"
+            required
+            value={avatar}
+            onChange={handleAvatarChange}
+          ></input>
+          </li>
+      </ul>
       <div>
-        <label className="modal__input-title" htmlFor="avatar-input">
-          Avatar
-        </label>
-        <input
-          id="avatar"
-          className="modal__input"
-          type="url"
-          name="url"
-          placeholder={currentUser.avatar}
-          minLength="1"
-          maxLength="400"
-          required
-          value={avatar}
-          onChange={handleAvatarChange}
-        ></input>
+        <button className="modal__input-container-button">
+          Save Changes
+        </button>
       </div>
     </ModalWithForm>
   );
