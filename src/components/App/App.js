@@ -66,7 +66,6 @@ function App() {
 
   const handleDeleteCard = () => {
     const id = selectedCard._id;
-    console.log(token);
     deleteItems(id, token)
       .then(() => {
         setClothingItems(clothingItems.filter((item) => item._id !== id));
@@ -131,15 +130,14 @@ function App() {
   }
 
   const registerUser = (values) => {
-    handleSubmit(() => register(values).then(() => loginUser(values)));
+    handleSubmit(() => register(values,).then(() => loginUser(values)));
   };
 
   const loginUser = (user) => {
     setIsLoading(true);
-    
+
     return login(user)
       .then((res) => {
-        //const token = res.data;
         checkLoggedIn(token);
         setToken(res.token);
         localStorage.setItem("jwt", res.token);
@@ -147,7 +145,6 @@ function App() {
         setCurrentUser(res.user);
         handleCloseModal();
         history.push("/profile");
-        //return checkLoggedIn(token);
       })
       .catch((err) => {
         console.error(err);
@@ -254,7 +251,7 @@ function App() {
   }, []);
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={currentUser}> 
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
@@ -334,7 +331,6 @@ function App() {
               setCurrentUser(updateUser);
               handleCloseModal();
             }}
-            
           />
         )}
 
