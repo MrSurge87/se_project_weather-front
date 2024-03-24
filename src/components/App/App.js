@@ -173,8 +173,6 @@ function App() {
   };
 
   const handleCardLike = (id, isLiked) => {
-    //debugger;
-
     const token = localStorage.getItem("jwt");
     if (isLiked) {
       removeCardLike(id, token)

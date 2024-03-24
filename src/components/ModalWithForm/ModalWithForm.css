@@ -133,6 +133,7 @@
   padding: 10px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .modal-form-submit:hover {
