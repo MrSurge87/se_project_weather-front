@@ -4,7 +4,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 const LoginModal = ({
   onClose,
   loginUser,
-  openRegistrationModal,
+  openRegisterModal,
   isLoading,
 }) => {
   const [email, changeEmail] = useState("");
@@ -73,7 +73,7 @@ const LoginModal = ({
         <button
           className="modal__login"
           type="button"
-          onClick={openRegistrationModal}
+          onClick={openRegisterModal}
         >
           or Sign Up
         </button>

@@ -138,11 +138,11 @@ function App() {
 
     return login(user)
       .then((res) => {
-        checkLoggedIn(token);
+        checkLoggedIn(res.token);
         setToken(res.token);
         localStorage.setItem("jwt", res.token);
-        setLoggedIn(true);
-        setCurrentUser(res.user);
+        //setLoggedIn(true);
+        //setCurrentUser(res.user);
         handleCloseModal();
         history.push("/profile");
       })
@@ -293,6 +293,7 @@ function App() {
           <LoginModal
             onClose={handleCloseModal}
             loginUser={loginUser}
+            openLoginModal={handleOpenLoginModal}
             openRegisterModal={handleOpenRegisterModal}
           />
         )}
@@ -302,6 +303,7 @@ function App() {
             onClose={handleCloseModal}
             registerUser={registerUser}
             openLoginModal={handleOpenLoginModal}
+            openRegisterModal={handleOpenRegisterModal}
           />
         )}
 
