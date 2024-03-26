@@ -51,7 +51,6 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
-  //const [isLiked, setIsLiked] = useState(false);
   const history = useHistory("");
   const [token, setToken] = useState(localStorage.getItem("jwt") || "");
   const [isLoading, setIsLoading] = useState(false);
@@ -159,6 +158,7 @@ function App() {
     handleSubmit(() =>
       update(values, jwt).then((res) => setCurrentUser(res.data))
     );
+   
   };
 
   const onSignOut = () => {

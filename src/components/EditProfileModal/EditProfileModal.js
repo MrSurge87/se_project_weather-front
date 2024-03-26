@@ -2,8 +2,9 @@ import { useState, useContext, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const EditProfileModal = ({ onClose, updateUser }) => {
+const EditProfileModal = ({ onClose, isOpen, updateUser, isLoading }) => {
   const currentUser = useContext(CurrentUserContext);
+
 
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
@@ -15,6 +16,7 @@ const EditProfileModal = ({ onClose, updateUser }) => {
     setAvatar(e.target.value);
   };
 
+
   const onSubmit = (e) => {
     e.preventDefault();
     updateUser({ name, avatar });
@@ -24,6 +26,8 @@ const EditProfileModal = ({ onClose, updateUser }) => {
     setName(currentUser.name);
     setAvatar(currentUser.avatar);
   }, [currentUser.name, currentUser.avatar]);
+
+
 
   return (
     <ModalWithForm
@@ -71,8 +75,8 @@ const EditProfileModal = ({ onClose, updateUser }) => {
           </li>
       </ul>
       <div>
-        <button className="modal__input-container-button">
-          Save Changes
+        <button className="modal__input-container-button" type="submit">
+          {isLoading ? "Saving" : "Save Changes"}
         </button>
       </div>
     </ModalWithForm>
