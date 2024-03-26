@@ -14,7 +14,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, imageUrl, weather: weatherType, });
+    onAddItem({ name, imageUrl, weather: weatherType });
   };
 
   const [weatherType, setWeatherType] = useState("");
