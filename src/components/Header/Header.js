@@ -12,7 +12,6 @@ const currentDate = new Date().toLocaleString("default", {
 });
 
 const Header = ({ onCreateModal, city, loggedIn, onRegister, onLogin }) => {
-  
   const currentUser = useContext(CurrentUserContext);
 
   return (
@@ -39,10 +38,13 @@ const Header = ({ onCreateModal, city, loggedIn, onRegister, onLogin }) => {
               + Add Clothes
             </button>
             <Link to="/profile" className="header__name">
-              {currentUser?.name || "Your Name" }
+              {currentUser?.name || "Your Name"}
             </Link>
-              <img className="header-avatar-logo" src={avatarImage} alt="avartar" />
-            
+            <img
+              className="header__avatar-image"
+              src={currentUser?.avatar} // logics of image change is here
+              alt="avartar"
+            />
           </div>
         ) : (
           <div>

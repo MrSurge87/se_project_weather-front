@@ -129,7 +129,7 @@ function App() {
   }
 
   const registerUser = (values) => {
-    handleSubmit(() => register(values,).then(() => loginUser(values)));
+    handleSubmit(() => register(values).then(() => loginUser(values)));
   };
 
   const loginUser = (user) => {
@@ -140,8 +140,6 @@ function App() {
         checkLoggedIn(res.token);
         setToken(res.token);
         localStorage.setItem("jwt", res.token);
-        //setLoggedIn(true);
-        //setCurrentUser(res.user);
         handleCloseModal();
         history.push("/profile");
       })
@@ -158,8 +156,8 @@ function App() {
     handleSubmit(() =>
       update(values, jwt).then((res) => setCurrentUser(res.data))
     );
-   
   };
+
 
   const onSignOut = () => {
     localStorage.removeItem("jwt");
@@ -251,7 +249,7 @@ function App() {
   }, []);
 
   return (
-    <CurrentUserContext.Provider value={currentUser}> 
+    <CurrentUserContext.Provider value={currentUser}>
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
@@ -262,6 +260,7 @@ function App() {
           loggedIn={loggedIn}
           onLogin={handleOpenLoginModal}
           onRegister={handleOpenRegisterModal}
+          user={currentUser}
         />
         <Switch>
           <Route exact path="/">
@@ -329,10 +328,11 @@ function App() {
           <EditProfileModal
             isOpen={activeModal === "edit"}
             onClose={handleCloseModal}
-            updateUser={(updateUser) => {
-              setCurrentUser(updateUser);
-              handleCloseModal();
-            }}
+            // updateUser={(updateUser) => {
+            //   setCurrentUser(updateUser);
+            //   handleCloseModal();
+            // }}
+            updateUser={updateUser}
           />
         )}
 

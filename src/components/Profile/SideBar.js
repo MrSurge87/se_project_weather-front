@@ -12,7 +12,7 @@ const SideBar = ({ onSignOut, onEditProfile }) => {
   return (
     <div className="sidebar-container">
       <div className="profile__logo">
-        <img className="profile__avatar-image" src={avatar} alt="Avatar" />
+        <img className="profile__avatar-image" src={currentUser?.avatar} alt="Avatar" />
         <p className="profile__user-name">{userName}</p>
       </div>
       {currentUser && (

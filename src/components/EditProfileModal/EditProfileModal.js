@@ -2,9 +2,10 @@ import { useState, useContext, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const EditProfileModal = ({ onClose, isOpen, updateUser, isLoading }) => {
+const EditProfileModal = ({ onClose, updateUser, isLoading }) => {
   const currentUser = useContext(CurrentUserContext);
 
+  console.log(currentUser);
 
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
@@ -16,18 +17,16 @@ const EditProfileModal = ({ onClose, isOpen, updateUser, isLoading }) => {
     setAvatar(e.target.value);
   };
 
-
   const onSubmit = (e) => {
     e.preventDefault();
     updateUser({ name, avatar });
+    //updateUser(currentUser.name, currentUser.avatar)
   };
 
-  useEffect(() => {
-    setName(currentUser.name);
-    setAvatar(currentUser.avatar);
-  }, [currentUser.name, currentUser.avatar]);
-
-
+  // useEffect(() => {
+  //   setName(currentUser.name);
+  //   setAvatar(currentUser.avatar);
+  // }, [currentUser.name, currentUser.avatar]);
 
   return (
     <ModalWithForm
@@ -42,24 +41,24 @@ const EditProfileModal = ({ onClose, isOpen, updateUser, isLoading }) => {
           Name *
         </label>
         <li className="modal__inputs">
-        <input
-          id="name"
-          className="modal__input"
-          type="text"
-          name="name"
-          placeholder={currentUser.name}
-          minLength="1"
-          maxLength="50"
-          required
-          value={name}
-          onChange={handleNameChange}
-        ></input>
+          <input
+            id="name"
+            className="modal__input"
+            type="text"
+            name="name"
+            placeholder={currentUser.name}
+            minLength="1"
+            maxLength="50"
+            required
+            value={name}
+            onChange={handleNameChange}
+          ></input>
         </li>
 
-          <label className="modal__input-title" htmlFor="avatar-input">
-            Avatar *
-          </label>
-          <li className="modal__inputs">
+        <label className="modal__input-title" htmlFor="avatar-input">
+          Avatar *
+        </label>
+        <li className="modal__inputs">
           <input
             id="avatar"
             className="modal__input"
@@ -72,7 +71,7 @@ const EditProfileModal = ({ onClose, isOpen, updateUser, isLoading }) => {
             value={avatar}
             onChange={handleAvatarChange}
           ></input>
-          </li>
+        </li>
       </ul>
       <div>
         <button className="modal__input-container-button" type="submit">

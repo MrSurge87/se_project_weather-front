@@ -60,6 +60,8 @@
 .profile__avatar-image {
   border-radius: 50%;
   background-color: black;
+  height: 56px;
+  width: 56px;
 }
 .profile__avatar-name {
   align-self: center;
