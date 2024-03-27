@@ -20,13 +20,12 @@ const EditProfileModal = ({ onClose, updateUser, isLoading }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     updateUser({ name, avatar });
-    //updateUser(currentUser.name, currentUser.avatar)
   };
 
-  // useEffect(() => {
-  //   setName(currentUser.name);
-  //   setAvatar(currentUser.avatar);
-  // }, [currentUser.name, currentUser.avatar]);
+  useEffect(() => {
+    setName(currentUser.name);
+    setAvatar(currentUser.avatar);
+  }, [currentUser.name, currentUser.avatar]);
 
   return (
     <ModalWithForm
@@ -37,7 +36,7 @@ const EditProfileModal = ({ onClose, updateUser, isLoading }) => {
       onSubmit={onSubmit}
     >
       <ul className="edit-modal__input-container">
-        <label className="modal__input-title" htmlFor="name-input">
+        <label className="modal__input-title" htmlFor="name">
           Name *
         </label>
         <li className="modal__inputs">
@@ -46,7 +45,7 @@ const EditProfileModal = ({ onClose, updateUser, isLoading }) => {
             className="modal__input"
             type="text"
             name="name"
-            placeholder={currentUser.name}
+            placeholder={name}
             minLength="1"
             maxLength="50"
             required
@@ -55,7 +54,7 @@ const EditProfileModal = ({ onClose, updateUser, isLoading }) => {
           ></input>
         </li>
 
-        <label className="modal__input-title" htmlFor="avatar-input">
+        <label className="modal__input-title" htmlFor="avatar">
           Avatar *
         </label>
         <li className="modal__inputs">
@@ -64,7 +63,7 @@ const EditProfileModal = ({ onClose, updateUser, isLoading }) => {
             className="modal__input"
             type="url"
             name="url"
-            placeholder={currentUser.avatar}
+            placeholder={avatar}
             minLength="1"
             maxLength="400"
             required

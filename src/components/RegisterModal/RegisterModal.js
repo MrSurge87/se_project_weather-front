@@ -43,7 +43,7 @@ const RegisterModal = ({
       onSubmit={onRegister}
     >
       <div>
-        <label className="modal__input-title" htmlFor="email-input">
+        <label className="modal__input-title" htmlFor="email">
           Email*
         </label>
         <input
@@ -61,7 +61,7 @@ const RegisterModal = ({
       </div>
 
       <div>
-        <label className="modal__input-title" htmlFor="password-input">
+        <label className="modal__input-title" htmlFor="password">
           Password
         </label>
         <input
@@ -79,7 +79,7 @@ const RegisterModal = ({
       </div>
 
       <div>
-        <label className="modal__input-title" htmlFor="name-input">
+        <label className="modal__input-title" htmlFor="name">
           Name
         </label>
         <input
@@ -97,7 +97,7 @@ const RegisterModal = ({
       </div>
 
       <div>
-        <label className="modal__input-title" htmlFor="avatar-input">
+        <label className="modal__input-title" htmlFor="avatar">
           Avatar URL
         </label>
         <input
