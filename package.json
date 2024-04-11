@@ -15,7 +15,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node app.js",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
@@ -54,6 +54,7 @@
     "jest": "^27.5.1",
     "mini-css-extract-plugin": "2.6.1",
     "postcss-loader": "7.0.1",
+    "supertest": "^6.3.4",
     "webpack": "5.76.0"
   }
 }
