@@ -1,4 +1,7 @@
-export const baseUrl = "http://localhost:3001";
+//export const baseUrl = "http://localhost:3001";
+export const baseUrl = process.env.NODE_ENV === "production"
+? "https://wtwrexample.crabdance.com"
+: "http://localhost:3001";
 
 export const processServerResponse = (res) => {
   if (res.ok) {

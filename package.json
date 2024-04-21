@@ -12,13 +12,15 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4", 
+
   },
   "scripts": {
-    "start": "node src/App/app.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
+    "test": "react-scripts jest",
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && scp -r ./build/* mendozsa.sm@wtwrexample.crabdance.com:/home/mendozsa.sm/frontend"
   },
   "eslintConfig": {
     "extends": [
